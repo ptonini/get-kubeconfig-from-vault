@@ -45,6 +45,8 @@ runs:
         wget -q https://releases.hashicorp.com/vault/${VERSION}/vault_${VERSION}_linux_amd64.zip
         sudo unzip vault_${VERSION}_linux_amd64.zip vault -d /usr/bin
       shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
 
     - name: load vault address
       if: inputs.vault_addr
