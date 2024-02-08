@@ -41,7 +41,7 @@ runs:
   steps:
     - name: install vault
       run: |
-        export VERSION=$(gh release list --repo hashicorp/vault -L 1 | grep Latest | awk '{sub(/v/,X,$0);print $1}')
+        export VERSION=$(gh release list --repo hashicorp/vault | grep Latest | awk '{sub(/v/,X,$0);print $1}')
         wget -q https://releases.hashicorp.com/vault/${VERSION}/vault_${VERSION}_linux_amd64.zip
         sudo unzip vault_${VERSION}_linux_amd64.zip vault -d /usr/bin
       shell: bash
